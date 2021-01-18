@@ -1,0 +1,6 @@
+,Variant ID,vf,Location,Chr: bp,vf_allele,Alleles,gmaf_allele,gmaf_freq,Global MAF,Class,Source,Evidence,Clin. Sig.,Conseq. Type,AA,AA coord,AA coord.1,sift_sort,sift_class,SIFT,polyphen_sort,polyphen_class,PolyPhen,cadd_sort,cadd_class,CADD,revel_sort,revel_class,REVEL,meta_lr_sort,meta_lr_class,MetaLR,mutation_assessor_sort,mutation_assessor_class,Mutation Assessor,Transcript
+0,rs483352901,121514380,6:144186996,6:144186996-144187003,TGG,AGTGGCGC/TGG,,,-,indel,dbSNP,Cited~Phenotype_or_Disease,pathogenic,frameshift variant,AVAR/AGX,123.0,123-126,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000367568.5
+1,rs794729649,270166147,6:144187018,6:144187018,T,C/T,,,-,SNP,dbSNP,Phenotype_or_Disease,likely pathogenic,stop gained,Q/*,131.0,131,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000367568.5
+2,rs1554294339,651957105,6:144187099,6:144187099-144187100,A,AA/A,,,-,indel,dbSNP,Phenotype_or_Disease,likely pathogenic,frameshift variant,K/X,158.0,158,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000367568.5
+3,rs1554294422,651957290,6:144187314,6:144187314,GG,G/GG,,,-,indel,dbSNP,Phenotype_or_Disease,pathogenic,frameshift variant,L/LX,229.0,229,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000367568.5
+4,rs104893996,81495234,6:144187429,6:144187429,T,C/T,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~gnomAD,pathogenic,stop gained,Q/*,268.0,268,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000367568.5

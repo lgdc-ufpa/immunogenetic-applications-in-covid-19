@@ -1,0 +1,27 @@
+,Variant ID,vf,Location,Chr: bp,vf_allele,Alleles,gmaf_allele,gmaf_freq,Global MAF,Class,Source,Evidence,Clin. Sig.,Conseq. Type,AA,AA coord,AA coord.1,sift_sort,sift_class,SIFT,polyphen_sort,polyphen_class,PolyPhen,cadd_sort,cadd_class,CADD,revel_sort,revel_class,REVEL,meta_lr_sort,meta_lr_class,MetaLR,mutation_assessor_sort,mutation_assessor_class,Mutation Assessor,Transcript
+0,rs121918296,108708845,11:64207412,11:64207412,A,G/A,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease,pathogenic,stop gained,W/*,16.0,16,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000279227.9
+1,rs1286499329,509241256,11:64210609,11:64210609,C,A/C/G,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~gnomAD,pathogenic,splice acceptor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000279227.9
+2,rs1286499329,509241256,11:64210609,11:64210609,G,A/C/G,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~gnomAD,pathogenic,splice acceptor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000279227.9
+3,rs121918298,108708865,11:64211648,11:64211648,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,stop gained,W/*,229.0,229,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000279227.9
+4,rs775138431,234808785,11:64220290,11:64220290,-,T/-,,,-,deletion,dbSNP,Frequency~Cited~Phenotype_or_Disease~ExAC,pathogenic,frameshift variant,P/X,429.0,429,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000279227.9
+5,rs121918295,108708831,11:64220649,11:64220649,T,C/T,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease,pathogenic,stop gained,R/*,513.0,513,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000279227.9
+6,rs121918297,108708855,11:64223094,11:64223094,T,C/T,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~TOPMed,pathogenic,stop gained,R/*,577.0,577,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000279227.9
+7,rs121918296,108708845,11:64207412,11:64207412,A,G/A,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease,pathogenic,stop gained,W/*,16.0,16,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000345728.9
+8,rs1286499329,509241256,11:64210609,11:64210609,C,A/C/G,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~gnomAD,pathogenic,splice acceptor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000345728.9
+9,rs1286499329,509241256,11:64210609,11:64210609,G,A/C/G,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~gnomAD,pathogenic,splice acceptor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000345728.9
+10,rs121918298,108708865,11:64211648,11:64211648,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,stop gained,W/*,229.0,229,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000345728.9
+11,rs775138431,234808785,11:64220290,11:64220290,-,T/-,,,-,deletion,dbSNP,Frequency~Cited~Phenotype_or_Disease~ExAC,pathogenic,frameshift variant,P/X,425.0,425,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000345728.9
+12,rs121918295,108708831,11:64220649,11:64220649,T,C/T,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease,pathogenic,stop gained,R/*,509.0,509,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000345728.9
+13,rs121918297,108708855,11:64223094,11:64223094,T,C/T,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~TOPMed,pathogenic,stop gained,R/*,573.0,573,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000345728.9
+14,rs121918297,108708855,11:64223094,11:64223094,T,C/T,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~TOPMed,pathogenic,non coding transcript exon variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000540554.1
+15,rs775138431,234808785,11:64220290,11:64220290,-,T/-,,,-,deletion,dbSNP,Frequency~Cited~Phenotype_or_Disease~ExAC,pathogenic,non coding transcript exon variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000540957.1
+16,rs1286499329,509241256,11:64210609,11:64210609,C,A/C/G,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~gnomAD,pathogenic,splice acceptor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000541252.1
+17,rs1286499329,509241256,11:64210609,11:64210609,G,A/C/G,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~gnomAD,pathogenic,splice acceptor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000541252.1
+18,rs121918298,108708865,11:64211648,11:64211648,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,stop gained,W/*,49.0,49,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000541252.1
+19,rs775138431,234808785,11:64220290,11:64220290,-,T/-,,,-,deletion,dbSNP,Frequency~Cited~Phenotype_or_Disease~ExAC,pathogenic,non coding transcript exon variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000541326.5
+20,rs121918296,108708845,11:64207412,11:64207412,A,G/A,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease,pathogenic,stop gained,W/*,16.0,16,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000544997.5
+21,rs1286499329,509241256,11:64210609,11:64210609,C,A/C/G,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~gnomAD,pathogenic,splice acceptor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000544997.5
+22,rs1286499329,509241256,11:64210609,11:64210609,G,A/C/G,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~gnomAD,pathogenic,splice acceptor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000544997.5
+23,rs121918298,108708865,11:64211648,11:64211648,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,stop gained,W/*,229.0,229,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000544997.5
+24,rs121918295,108708831,11:64220649,11:64220649,T,C/T,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease,pathogenic,synonymous variant,S,71.0,71,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000545896.1
+25,rs121918297,108708855,11:64223094,11:64223094,T,C/T,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~TOPMed,pathogenic,stop gained,R/*,94.0,94,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000545896.1

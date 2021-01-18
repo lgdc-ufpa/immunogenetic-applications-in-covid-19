@@ -1,0 +1,3 @@
+"Population","","Allele: frequency (count)","Genotype: frequency (count)"
+"  ESP6500:AA","","  TCTC: 0.991 (4227)   TC: 0.009 (37) ","TCTC|TCTC: 0.991 (2112) TC|TC: 0.008 (17) TC|TCTC: 0.001 (3) "
+"  ESP6500:EA","","  TCTC: 0.989 (8160)   TC: 0.011 (94) ","TCTC|TCTC: 0.988 (4079) TC|TC: 0.011 (46) TC|TCTC: 0.0004846 (2) "

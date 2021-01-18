@@ -1,0 +1,6 @@
+"Population","","Allele: frequency (count)","Genotype: frequency (count)","Genotypes"
+"GGVP:ALL","","C: 0.999 (1009) T: 0.001 (1) ","C|C: 0.998 (504) C|T: 0.002 (1) ",""
+"  GGVP:GWD","","C: 1.000 (434) ","C|C: 1.000 (217) ",""
+"  GGVP:GWF","","C: 1.000 (184) ","C|C: 1.000 (92) ",""
+"  GGVP:GWJ","","C: 1.000 (196) ","C|C: 1.000 (98) ",""
+"  GGVP:GWW","","C: 0.995 (195) T: 0.005 (1) ","C|C: 0.990 (97) C|T: 0.010 (1) ",""

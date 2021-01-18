@@ -1,0 +1,3 @@
+"Population","","Allele: frequency (count)","Genotype: frequency (count)"
+"  ESP6500:AA","","  TGAAT: 1.000 (4266)   TGAATGAAT: 0.000 ","TGAAT|TGAA...: 1.000 (2133) "
+"  ESP6500:EA","","  TGAAT: 0.9999 (8253)   TGAATGAAT: 0.0001212 (1) ","TGAAT|TGAA...: 0.9998 (4126) TGAAT|TGAA...: 0.0002423 (1) "

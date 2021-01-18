@@ -1,0 +1,3 @@
+"Population","","Allele: frequency (count)","Genotype: frequency (count)"
+"  ESP6500:AA","","  CCCC: 1.000 (4264)   CCC: 0.000 ","CCCC|CCCC: 1.000 (2132) "
+"  ESP6500:EA","","  CCCC: 0.9999 (8253)   CCC: 0.0001212 (1) ","CCCC|CCCC: 0.9998 (4126) CCC|CCCC: 0.0002423 (1) "

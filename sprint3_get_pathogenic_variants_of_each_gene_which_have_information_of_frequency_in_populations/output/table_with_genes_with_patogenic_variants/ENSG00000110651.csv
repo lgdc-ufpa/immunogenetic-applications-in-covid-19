@@ -1,0 +1,11 @@
+,Variant ID,vf,Location,Chr: bp,vf_allele,Alleles,gmaf_allele,gmaf_freq,Global MAF,Class,Source,Evidence,Clin. Sig.,Conseq. Type,AA,AA coord,AA coord.1,sift_sort,sift_class,SIFT,polyphen_sort,polyphen_class,PolyPhen,cadd_sort,cadd_class,CADD,revel_sort,revel_class,REVEL,meta_lr_sort,meta_lr_class,MetaLR,mutation_assessor_sort,mutation_assessor_class,Mutation Assessor,Transcript
+0,rs587776775,205085516,11:2395971,11:2395971,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000263645.10
+1,rs587776775,205085516,11:2395971,11:2395971,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000381036.7
+2,rs587776775,205085516,11:2395971,11:2395971,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000464784.6
+3,rs587776775,205085516,11:2395971,11:2395971,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,splice donor variant~non coding transcript variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000468153.1
+4,rs587776775,205085516,11:2395971,11:2395971,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000481687.1
+5,rs587776775,205085516,11:2395971,11:2395971,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000492252.5
+6,rs587776775,205085516,11:2395971,11:2395971,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000492627.5
+7,rs587776775,205085516,11:2395971,11:2395971,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000526072.5
+8,rs587776775,205085516,11:2395971,11:2395971,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000527343.5
+9,rs587776775,205085516,11:2395971,11:2395971,A,G/A,,,-,SNP,dbSNP,Cited~Phenotype_or_Disease,pathogenic,non coding transcript exon variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000531840.1
