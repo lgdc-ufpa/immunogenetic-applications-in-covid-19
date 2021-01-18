@@ -1,0 +1,20 @@
+# others
+tqdm==4.55.1
+
+#data science
+numpy==1.19.4
+pandas==1.2.0
+scipy==1.6.0
+
+# data visualization
+matplotlib==3.3.3
+seaborn==0.11.1
+jupyter==1.0.0
+plotly==4.14.3
+
+# Type Hintings
+typing==3.7.4.3
+
+# linters and somethings like that
+pyflakes==2.2.0
+pylint==2.6.0
