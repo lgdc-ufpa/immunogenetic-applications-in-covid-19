@@ -1,0 +1,3 @@
+"Population","","Allele: frequency (count)","Genotype: frequency (count)"
+"  ESP6500:AA","","  CAATCAA: 0.9998 (4263)   CAA: 0.0002345 (1) ","CAATCAA|CA...: 0.9995 (2131) CAA|CAATCA...: 0.000469 (1) "
+"  ESP6500:EA","","  CAATCAA: 1.000 (8252)   CAA: 0.000 ","CAATCAA|CA...: 1.000 (4126) "

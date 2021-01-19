@@ -1,0 +1,9 @@
+,Variant ID,vf,Location,Chr: bp,vf_allele,Alleles,gmaf_allele,gmaf_freq,Global MAF,Class,Source,Evidence,Clin. Sig.,Conseq. Type,AA,AA coord,AA coord.1,sift_sort,sift_class,SIFT,polyphen_sort,polyphen_class,PolyPhen,cadd_sort,cadd_class,CADD,revel_sort,revel_class,REVEL,meta_lr_sort,meta_lr_class,MetaLR,mutation_assessor_sort,mutation_assessor_class,Mutation Assessor,Transcript
+0,rs1561585424,593512302,5:169671175,5:169671175,A,G/A,,,-,SNP,dbSNP,Phenotype_or_Disease,likely pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000520908.7
+1,rs762909359,20118366,5:170047513,5:170047513,T,C/T,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~ExAC~gnomAD,pathogenic,stop gained,Q/*,1324.0,1324,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000520908.7
+2,rs1561898523,594946484,5:170050398,5:170050398,A,G/A,,,-,SNP,dbSNP,Phenotype_or_Disease,likely pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000520908.7
+3,rs1561585424,593512302,5:169671175,5:169671175,A,G/A,,,-,SNP,dbSNP,Phenotype_or_Disease,likely pathogenic,splice donor variant~non coding transcript variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000522138.1
+4,rs762909359,20118366,5:170047513,5:170047513,T,C/T,,,-,SNP,dbSNP,Frequency~Cited~Phenotype_or_Disease~ExAC~gnomAD,pathogenic,non coding transcript exon variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000523351.6
+5,rs1561898523,594946484,5:170050398,5:170050398,A,G/A,,,-,SNP,dbSNP,Phenotype_or_Disease,likely pathogenic,splice donor variant~non coding transcript variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000523351.6
+6,rs1561585424,593512302,5:169671175,5:169671175,A,G/A,,,-,SNP,dbSNP,Phenotype_or_Disease,likely pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000524185.5
+7,rs1561898523,594946484,5:170050398,5:170050398,A,G/A,,,-,SNP,dbSNP,Phenotype_or_Disease,likely pathogenic,splice donor variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000524185.5

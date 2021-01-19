@@ -1,0 +1,3 @@
+"Population","","Allele: frequency (count)","Genotype: frequency (count)"
+"  ESP6500:AA","","A: 0.0002271 (1) G: 0.9998 (4403) ","A|G: 0.0004541 (1) G|G: 0.9995 (2201) "
+"  ESP6500:EA","","A: 0.000 G: 1.000 (8598) ","G|G: 1.000 (4299) "

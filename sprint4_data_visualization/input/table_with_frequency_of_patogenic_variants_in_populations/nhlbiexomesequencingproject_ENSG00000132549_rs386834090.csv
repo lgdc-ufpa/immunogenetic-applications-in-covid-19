@@ -1,0 +1,3 @@
+"Population","","Allele: frequency (count)","Genotype: frequency (count)"
+"  ESP6500:AA","","  ATAAATAA: 0.994 (4240)   ATAA: 0.006 (24) ","ATAAATAA|A...: 0.994 (2120) ATAA|ATAA: 0.006 (12) "
+"  ESP6500:EA","","  ATAAATAA: 0.994 (8205)   ATAA: 0.006 (49) ","ATAAATAA|A...: 0.994 (4102) ATAA|ATAA: 0.006 (24) ATAA|ATAAA...: 0.0002423 (1) "

@@ -1,0 +1,3 @@
+"Population","","Allele: frequency (count)","Genotype: frequency (count)"
+"  ESP6500:AA","","  GTGAGTGA: 1.000 (4264)   GTGA: 0.000 ","GTGAGTGA|G...: 1.000 (2132) "
+"  ESP6500:EA","","  GTGAGTGA: 0.9999 (8253)   GTGA: 0.0001212 (1) ","GTGAGTGA|G...: 0.9998 (4126) GTGA|GTGAG...: 0.0002423 (1) "

@@ -1,0 +1,7 @@
+,Variant ID,vf,Location,Chr: bp,vf_allele,Alleles,gmaf_allele,gmaf_freq,Global MAF,Class,Source,Evidence,Clin. Sig.,Conseq. Type,AA,AA coord,AA coord.1,sift_sort,sift_class,SIFT,polyphen_sort,polyphen_class,PolyPhen,cadd_sort,cadd_class,CADD,revel_sort,revel_class,REVEL,meta_lr_sort,meta_lr_class,MetaLR,mutation_assessor_sort,mutation_assessor_class,Mutation Assessor,Transcript
+0,rs1568431102,371456203,19:6586045,19:6586045-6586050,AAG,AAGAAG/AAG,,,-,indel,dbSNP,Cited~Phenotype_or_Disease,pathogenic,inframe deletion,TFF/TF,184.0,184-186,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000245903.4
+1,rs368303189,68964395,19:6586067,19:6586067,A,G/A,,,-,SNP,dbSNP,Frequency~Cited~ESP~Phenotype_or_Disease~ExAC,pathogenic,stop gained,R/*,179.0,179,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000245903.4
+2,rs1568431262,371457152,19:6586352,19:6586352,-,A/-,,,-,deletion,dbSNP,Cited~Phenotype_or_Disease,pathogenic,frameshift variant,S/X,84.0,84,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000245903.4
+3,rs1568431102,371456203,19:6586045,19:6586045-6586050,AAG,AAGAAG/AAG,,,-,indel,dbSNP,Cited~Phenotype_or_Disease,pathogenic,intron variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000423145.7
+4,rs368303189,68964395,19:6586067,19:6586067,A,G/A,,,-,SNP,dbSNP,Frequency~Cited~ESP~Phenotype_or_Disease~ExAC,pathogenic,intron variant,,,,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000423145.7
+5,rs1568431262,371457152,19:6586352,19:6586352,-,A/-,,,-,deletion,dbSNP,Cited~Phenotype_or_Disease,pathogenic,frameshift variant,S/X,84.0,84,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000423145.7

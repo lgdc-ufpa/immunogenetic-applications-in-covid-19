@@ -1,0 +1,4 @@
+,Variant ID,vf,Location,Chr: bp,vf_allele,Alleles,gmaf_allele,gmaf_freq,Global MAF,Class,Source,Evidence,Clin. Sig.,Conseq. Type,AA,AA coord,AA coord.1,sift_sort,sift_class,SIFT,polyphen_sort,polyphen_class,PolyPhen,cadd_sort,cadd_class,CADD,revel_sort,revel_class,REVEL,meta_lr_sort,meta_lr_class,MetaLR,mutation_assessor_sort,mutation_assessor_class,Mutation Assessor,Transcript
+0,rs1568801716,372547669,19:41879108,19:41879108,A,G/A,,,-,SNP,dbSNP,Phenotype_or_Disease,pathogenic,stop gained,W/*,66.0,66,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000221972.8
+1,rs1568801716,372547669,19:41879108,19:41879108,A,G/A,,,-,SNP,dbSNP,Phenotype_or_Disease,pathogenic,stop gained,W/*,66.0,66,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000444740.2
+2,rs1568801716,372547669,19:41879108,19:41879108,A,G/A,,,-,SNP,dbSNP,Phenotype_or_Disease,pathogenic,stop gained,W/*,66.0,66,,-,,,-,,,-,,,-,,,-,,,-,,ENST00000597454.1

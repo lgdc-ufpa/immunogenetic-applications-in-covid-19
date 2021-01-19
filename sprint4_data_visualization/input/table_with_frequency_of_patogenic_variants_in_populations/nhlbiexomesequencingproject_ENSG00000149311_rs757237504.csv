@@ -1,0 +1,3 @@
+"Population","","Allele: frequency (count)","Genotype: frequency (count)"
+"  ESP6500:AA","","  GCTAG: 0.9998 (4263)   GCTAGCTAG: 0.0002345 (1) ","GCTAG|GCTA...: 0.9995 (2131) GCTAG|GCTA...: 0.000469 (1) "
+"  ESP6500:EA","","  GCTAG: 1.000 (8254)   GCTAGCTAG: 0.000 ","GCTAG|GCTA...: 1.000 (4127) "
