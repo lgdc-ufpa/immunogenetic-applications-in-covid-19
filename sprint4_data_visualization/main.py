@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 from typing import List
+from tqdm import tqdm
 """
 Sprint 4.1: analyze tables with genes
 with patogenic variant in populations
@@ -44,8 +45,13 @@ index = [i for i in range(len(li_csv_variants))]
 columns = ['gene', 'variant']
 df_output = pd.DataFrame(index=index, columns=columns)
 
+# Create output csv file
+with open('output_2.csv', 'w') as f:
+	line = 'gene>variant>population,frequency\n'
+	f.write(line)
+
 # Iterate over csv files
-for csv_gene_file in li_csv_genes:
+for csv_gene_file in tqdm(li_csv_genes):	
 
 	# form the absolute path to the
 	# current csv gene file
@@ -56,10 +62,19 @@ for csv_gene_file in li_csv_genes:
 	# examples: ENSG00000159189.csv
 	df = pd.read_csv(abs_path_to_current_csv_gene)
 
-	# get the variants
-	variants: pd.core.series.Series = \
-	df['Variant ID']
-	# print(variants)
+	# get the variants	
+	try:
+		variants: pd.core.series.Series = \
+		df['Variant ID']
+		# print(variants)
+	except Exception as e:
+		print(f'>>> {abs_path_to_current_csv_gene}')
+		raise e
+	else:
+		pass
+	finally:
+		pass
+	
 
 	# get the id_ensembl of the gene
 	id_ensembl: str = csv_gene_file.replace('.csv', '')
@@ -98,27 +113,53 @@ for csv_gene_file in li_csv_genes:
 			# Get the populations
 			populations: pd.core.series.Series = \
 			df_variants['Population']
+			# print('population[0]: ', populations[0],\
+				# df_variants['Population'][0])
+
 			# print(populations)
 
 			# Get the frequencies in populations
 			frequencies: pd.core.series.Series = \
 			df_variants['Allele: frequency (count)']
 
+			# print('OK', csv_gene_file, abs_path_to_current_csv_variant)
+
 			# Iterate over the populations
 			# where the current variant is present
+
 			for population, frequency in\
 			 zip(populations, frequencies):
-				# print(population)
+				# print(population)				
 
 				# Storage informations
 				# in output dataframe
 
-				print(csv_gene_file, id_ensembl, variant,\
-				 v_csv, population, frequency)
-				# df_output[id]
+				# print(csv_gene_file, id_ensembl, variant,\
+				#  v_csv, population, frequency)
 
+				df_line = pd.DataFrame({
+				'gene': [id_ensembl], \
+				'variant': [variant], \
+				population: [frequency]})
+
+				# print('df_line: ', df_line)
+
+				# df_output.append(df_line, \
+				# 	ignore_index=True)
+
+				# print('df_output: ', df_output)
+
+				with open('output_2.csv', 'a+') as f:
+					line = '{}>{}>{}>{}\n'.format(
+						id_ensembl, \
+						variant, \
+						population, \
+						frequency)
+					f.write(line)
 
 		# break
 
 
 	# break
+
+# df_output.to_csv('output.csv', sep='>', index=False)
