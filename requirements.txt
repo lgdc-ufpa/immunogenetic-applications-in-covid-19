@@ -4,6 +4,7 @@ tqdm==4.55.1
 #data science
 numpy==1.19.4
 pandas==1.2.0
+xlrd==2.0.1
 scipy==1.6.0
 
 # data visualization
