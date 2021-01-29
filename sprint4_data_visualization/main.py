@@ -173,6 +173,6 @@ for csv_gene_file in tqdm(li_csv_genes):
 		# break
 
 
-	break
+	# break
 
 # df_output.to_csv('output.csv', sep='>', index=False)
