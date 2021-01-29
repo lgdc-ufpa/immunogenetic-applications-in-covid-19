@@ -47,8 +47,8 @@ columns = ['gene', 'variant']
 df_output = pd.DataFrame(index=index, columns=columns)
 
 # Create output csv file
-with open('output_2.csv', 'w') as f:
-	line = 'gene>variant>population,frequency\n'
+with open('output_3.csv', 'w') as f:
+	line = 'gene>variant>population>alelle>frequency>count\n'
 	f.write(line)
 
 # Iterate over csv files
@@ -153,20 +153,23 @@ for csv_gene_file in tqdm(li_csv_genes):
 
 				# print('df_output: ', df_output)
 
-				split_alelles_from_frequencies(
+				li_gen_var_pop_alel_fre: List[str] = split_alelles_from_frequencies(
 					id_ensembl,
 					variant,
 					population,
 					frequency)
-				
+
+
 				
 				with open('output_3.csv', 'a+') as f:					
-					line = '{}>{}>{}>{}\n'.format(
-						id_ensembl, \
-						variant, \
-						population, \
-						frequency)
-					f.write(line)
+					# line = '{}>{}>{}>{}\n'.format(
+					# 	id_ensembl, \
+					# 	variant, \
+					# 	population, \
+					# 	frequency)
+
+					for line_gen_var_pop_alel_fre in li_gen_var_pop_alel_fre:
+						f.write(line_gen_var_pop_alel_fre + '\n')
 
 		break
 
