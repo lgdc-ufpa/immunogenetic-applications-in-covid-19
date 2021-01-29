@@ -157,9 +157,8 @@ for csv_gene_file in tqdm(li_csv_genes):
 					id_ensembl,
 					variant,
 					population,
-					frequency)
-
-
+					frequency,
+					debug=False)
 				
 				with open('output_3.csv', 'a+') as f:					
 					# line = '{}>{}>{}>{}\n'.format(
@@ -171,7 +170,7 @@ for csv_gene_file in tqdm(li_csv_genes):
 					for line_gen_var_pop_alel_fre in li_gen_var_pop_alel_fre:
 						f.write(line_gen_var_pop_alel_fre + '\n')
 
-		break
+		# break
 
 
 	break
