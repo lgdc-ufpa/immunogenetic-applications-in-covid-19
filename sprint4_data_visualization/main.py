@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from typing import List
 from tqdm import tqdm
+from modules import split_alelles_from_frequencies
 """
 Sprint 4.1: analyze tables with genes
 with patogenic variant in populations
@@ -125,7 +126,9 @@ for csv_gene_file in tqdm(li_csv_genes):
 			# print('OK', csv_gene_file, abs_path_to_current_csv_variant)
 
 			# Iterate over the populations
-			# where the current variant is present
+			# where the current variant is present					
+
+			df_lines = pd.DataFrame()
 
 			for population, frequency in\
 			 zip(populations, frequencies):
@@ -137,10 +140,11 @@ for csv_gene_file in tqdm(li_csv_genes):
 				# print(csv_gene_file, id_ensembl, variant,\
 				#  v_csv, population, frequency)
 
-				df_line = pd.DataFrame({
-				'gene': [id_ensembl], \
-				'variant': [variant], \
-				population: [frequency]})
+
+				# df_line = pd.DataFrame({
+				# 'gene': [id_ensembl], \
+				# 'variant': [variant], \
+				# population: [frequency]})
 
 				# print('df_line: ', df_line)
 
@@ -149,7 +153,14 @@ for csv_gene_file in tqdm(li_csv_genes):
 
 				# print('df_output: ', df_output)
 
-				with open('output_2.csv', 'a+') as f:
+				split_alelles_from_frequencies(
+					id_ensembl,
+					variant,
+					population,
+					frequency)
+				
+				
+				with open('output_3.csv', 'a+') as f:					
 					line = '{}>{}>{}>{}\n'.format(
 						id_ensembl, \
 						variant, \
@@ -157,9 +168,9 @@ for csv_gene_file in tqdm(li_csv_genes):
 						frequency)
 					f.write(line)
 
-		# break
+		break
 
 
-	# break
+	break
 
 # df_output.to_csv('output.csv', sep='>', index=False)
