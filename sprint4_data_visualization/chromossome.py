@@ -36,12 +36,12 @@ def chromossome_regex(chromossome_str: str) -> Tuple[str, List[str], List[str]]:
 	('19', ['p', '1', '3', '2'], [None, None, None, None])
 	('19', ['p', '1', '3', '16'], [None, None, None, None])
 	('6', ['q', '2', '1', None], [None, None, None, None])
-	(None, ['q', '2', '5', None], [None, None, None, None])
-	(None, ['p', '2', '2', '11'], ['p', '2', '1', '3'])
+	('X', ['q', '2', '5', None], [None, None, None, None])
+	('X', ['p', '2', '2', '11'], ['p', '2', '1', '3'])
 	('1', ['q', '3', '1', '3'], ['q', '3', '2', '1'])
 
 	"""
-	regex = re.compile(r'(\d+)?(\w)(\d)(\d)\.?(\d+)?-?(\w)?(\d)?(\d)?\.?(\d+)?')	
+	regex = re.compile(r'(\w+)?(\w)(\d)(\d)\.?(\d+)?-?(\w)?(\d)?(\d)?\.?(\d+)?')	
 	matching_object = regex.search(chromossome_str)
 	chromossome, arm_length1, region1, band1, subband1, arm_length2, region2, band2, subband2 = matching_object.groups()
 	arm_1 = [arm_length1, region1, band1, subband1]
@@ -97,4 +97,7 @@ def chromossome_sequence_to_dataframe(chromossomes: Iterable) -> pd.DataFrame:
 		di_chromossome['band_2'].append(arm_2[2])
 		di_chromossome['subband_2'].append(arm_2[3])
 
-	return pd.DataFrame(di_chromossome)
+	_df = pd.DataFrame(di_chromossome)
+	_df['chromossome'] = _df['chromossome'].astype('str')
+
+	return _df
