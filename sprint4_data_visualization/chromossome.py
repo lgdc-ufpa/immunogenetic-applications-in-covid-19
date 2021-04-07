@@ -101,3 +101,65 @@ def chromossome_sequence_to_dataframe(chromossomes: Iterable) -> pd.DataFrame:
 	_df['chromossome'] = _df['chromossome'].astype('str')
 
 	return _df
+
+
+def chromossome_dataframe_order(_df_chromossomes: pd.DataFrame, x: bool = False):
+	"""Extract chromossome column, and return it ordered
+
+	Arguments
+	---------
+
+	_df_chromossomes : pandas dataframe wich has 'chromossome' column
+		It row in 'chromossoe' column must contains strings both from 1 to 22 and 'X'
+
+	-> return : chromossome column ordered as a dataframe
+	"""
+	column_chromossome = _df_chromossomes[['chromossome']]
+	column_chromossome_ordered = pd.DataFrame()
+
+	def select(value):
+		_bol = column_chromossome.sort_values(by='chromossome').apply(lambda x: x == value)		
+		return pd.concat([column_chromossome_ordered, column_chromossome[_bol].dropna()], axis=0)
+				
+	_l = [str(i) for i in range(0, 23)]
+
+	for i in _l:
+		column_chromossome_ordered = select(i)
+
+	if x:
+		column_chromossome_ordered = select('X')
+			
+	return column_chromossome_ordered	
+
+
+
+def _chromossome_dataframe_order(_df_chromossomes: pd.DataFrame, x: bool = False):
+	"""Version 01: Extract chromossome column, and return it ordered
+
+	Arguments
+	---------
+
+	_df_chromossomes : _df_chromossomes[['chromossome']]
+
+	x : refers to X chromossome
+		if True, give X chromossome in dataframe
+
+	-> return : chromossome column ordered as a dataframe
+
+	"""
+	_df_chromossomes_ordered = pd.DataFrame()
+
+	def select(value):
+		_bol = _df_chromossomes[['chromossome']][['chromossome']].sort_values(by='chromossome').apply(lambda x: x == value)		
+		return pd.concat([_df_chromossomes_ordered, _df_chromossomes[_bol].dropna()], axis=0)
+				
+	_l = [str(i) for i in range(0, 23)]
+
+	for i in _l:
+		_df_chromossomes_ordered = select(i)
+
+	if x:
+		_df_chromossomes_ordered = select('X')
+		
+	_df_chromossome_ordered_index_reseted = _df_chromossomes_ordered.reset_index()
+	return _df_chromossome_ordered_index_reseted[['chromossome']]
