@@ -1,10 +1,9 @@
+import os
 import pandas as pd
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
-from plots import distplot, jointplot
-from plots import countplot
-from plots import heatmap, clustermap
+from plots import *
 from chromossome import chromossome_sequence_to_dataframe
 from chromossome import chromossome_dataframe_order
 
@@ -241,7 +240,13 @@ plt.show()
 ##########################
 # Question 02
 # What genes are important?
-# Status: DOING
+# Status: DONE
+
+# Analysing just the gene incidences in chromossomes,
+# the 34 genes of chromossome 01 are important and should be
+# analyzed and, if some pattern is observed, try to undestand it
+# and verify if this patter occurs in other genes of chromossomes who has
+# high frequency too
 ##########################
 
 
@@ -266,3 +271,112 @@ li_chrm = ['1', '2', '5', '6', '11', '17', '19']
 for chrm in li_chrm:
 	bol_chrm = df2['chromossome'].apply(lambda x: x == chrm)
 	df3 = pd.concat([df3, df2[df2[['chromossome']].apply(lambda x: x == chrm).dropna()['chromossome']]], axis=0)
+
+
+#######################################
+# Question 03
+# There is something in common in genes
+# present in chromossome 01?
+
+# Status: DOING
+#######################################
+
+
+#########################
+# Data Anaylis
+# Status: DONE
+
+# Genes of chromossome 01
+#########################
+
+df4 = df3[df3['chromossome'] == '1'].reset_index()[['gene']]
+
+##########################
+# Data Anaylis
+# Status: DOING
+
+# Get genes (only) informations
+
+# There is only 266 of a total of 308 with patogenic variants
+##########################
+
+##########
+# Read Dataset
+# Genes with patogenic variants
+# Status: DONE
+##########
+df5 = pd.DataFrame()
+
+relative_path_genes = os.path.join("input", "table_with_genes_with_patogenic_variants")
+
+path_genes_with_patogenic_variants = os.path.join(os.getcwd(), relative_path_genes)
+
+for gene in os.listdir(path_genes_with_patogenic_variants):
+	path_gene = os.path.join(path_genes_with_patogenic_variants, gene)
+	df_temp = pd.read_csv(path_gene, sep=',')
+	df_temp['gene'] = gene.split('.')[0]
+	df5 = pd.concat([df5, df_temp], axis=0)
+
+del df5['Unnamed: 0']
+
+
+#############################
+# Number of variants per gene
+# Status: DONE
+#############################
+
+df6 = df5[['gene', 'Variant ID']]
+
+df7 = df6.groupby('gene').count().sort_values(by='Variant ID', ascending=False).reset_index()
+
+df7.columns = ['gene', 'variants']
+
+bol_patogenic_genes_chr_1 = [True if gene in np.array(df4['gene']) else False for gene in df7['gene']]
+
+df8 = df7[bol_patogenic_genes_chr_1].reset_index()[['gene', 'variants']]
+
+n_genes_patogenic_chr_1 = len([gene for gene in df7['gene'] if gene in np.array(df4['gene'])])
+
+n_genes_chr_1 = len(df4['gene'])
+
+print(f"{n_genes_patogenic_chr_1} ({100 * (n_genes_patogenic_chr_1 / n_genes_chr_1):.2f}%) \
+	genes (of {n_genes_chr_1}) in chromossome 01 has patogenic variants")
+
+df9 = df8.iloc[0:3]
+
+df10 = df8.iloc[3:]
+
+df7.describe()
+df8.describe()
+df10.describe()
+
+########################
+# Data Visualization of number of patogenic genes per gene in chr 1
+# Status: DOING
+########################
+
+#########################
+# 01 - Distribution plots
+#########################
+distplot(df7, column='variants')
+distplot(df8, column='variants')
+distplot(df10, column='variants')
+
+kdeplot(df7, column='variants')
+kdeplot(df8, column='variants')
+kdeplot(df10, column='variants')
+
+########################
+# 02 - Categorical plots
+########################
+boxplot(df7)
+boxplot(df8)
+boxplot(df10)
+
+##########################
+# Data Anaylis
+# Status: DOING
+
+# Get genes informations about populations
+##########################
+
