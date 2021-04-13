@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 from plots import *
 from chromossome import chromossome_sequence_to_dataframe
 from chromossome import chromossome_dataframe_order
+from chromossome import chromossome_dataframe_order_with_all_columns
+
 
 ##############
 # Load Dataset
@@ -169,36 +171,36 @@ group_arm_2_chromossome = df_chromossomes[['chromossome', 'arm_2']].groupby('arm
 #########################
 
 # ok
-distplot(df=df_chromossomes_ordered, column='chromossome')
-distplot(df=df_chromossomes, column='arm_1')
-sns.displot(df_chromossomes['arm_2'].dropna())
-distplot(df_chromossomes[['arm_1', 'region_1']].sort_values(by='region_1'), column='region_1')
-distplot(df_chromossomes[['arm_1', 'region_1']].sort_values(by='region_1'), column='arm_1')
+# distplot(df=df_chromossomes_ordered, column='chromossome')
+# distplot(df=df_chromossomes, column='arm_1')
+# sns.displot(df_chromossomes['arm_2'].dropna())
+# distplot(df_chromossomes[['arm_1', 'region_1']].sort_values(by='region_1'), column='region_1')
+# distplot(df_chromossomes[['arm_1', 'region_1']].sort_values(by='region_1'), column='arm_1')
 
 # ugly
-jointplot(df=df_chromossomes, x='chromossome', y='arm_1')
-jointplot(df=df_chromossomes_arm_2, x='chromossome', y='arm_2')
+# jointplot(df=df_chromossomes, x='chromossome', y='arm_1')
+# jointplot(df=df_chromossomes_arm_2, x='chromossome', y='arm_2')
 
 
 ########################
 # 02 - Categorical plots
 ########################
 # ok
-countplot(df_chromossomes_ordered, x='chromossome', color='gray')
+# countplot(df_chromossomes_ordered, x='chromossome', color='gray')
 
 # issue: order all dataframe, and not only the chromossome column
 # countplot(df_chromossomes_ordered, x='chromossome', hue='arm_1')
 
-countplot(df_chromossomes, x='chromossome', hue='arm_1')
-countplot(df_chromossomes, x='chromossome', hue='arm_2')
-countplot(df_chromossomes, x='arm_1')
-countplot(df_chromossomes.sort_values(by='region_1'), x='region_1')
-countplot(df_chromossomes.sort_values(by='band_1'), x='band_1')
-countplot(df_chromossomes.sort_values(by='subband_1'), x='subband_1')
-countplot(df_chromossomes, x='arm_2')
-countplot(df_chromossomes.sort_values(by='region_2'), x='region_2')
-countplot(df_chromossomes.sort_values(by='band_2'), x='band_2')
-countplot(df_chromossomes.sort_values(by='subband_2'), x='subband_2')
+# countplot(df_chromossomes, x='chromossome', hue='arm_1')
+# countplot(df_chromossomes, x='chromossome', hue='arm_2')
+# countplot(df_chromossomes, x='arm_1')
+# countplot(df_chromossomes.sort_values(by='region_1'), x='region_1')
+# countplot(df_chromossomes.sort_values(by='band_1'), x='band_1')
+# countplot(df_chromossomes.sort_values(by='subband_1'), x='subband_1')
+# countplot(df_chromossomes, x='arm_2')
+# countplot(df_chromossomes.sort_values(by='region_2'), x='region_2')
+# countplot(df_chromossomes.sort_values(by='band_2'), x='band_2')
+# countplot(df_chromossomes.sort_values(by='subband_2'), x='subband_2')
 
 ######################
 # 03 - Matricial plots
@@ -206,23 +208,23 @@ countplot(df_chromossomes.sort_values(by='subband_2'), x='subband_2')
 
 # Issue: This graph will be very good if all dataframe
 # were be ordered by chromossomes
-heatmap(df_chromossomes.groupby('chromossome').count())
+# heatmap(df_chromossomes.groupby('chromossome').count())
 
 # bad
-heatmap(group_arm_1_chromossome.count())
+# heatmap(group_arm_1_chromossome.count())
 
 # Issue: order by chromossomes
-heatmap(group_chromossome_arm_1.count())
+# heatmap(group_chromossome_arm_1.count())
 
 # bad
-heatmap(group_arm_2_chromossome.count())
+# heatmap(group_arm_2_chromossome.count())
 
 # Issue: ordered by chromossomes
-heatmap(group_chromossome_arm_2.count())
+# heatmap(group_chromossome_arm_2.count())
 
 # Issue: This graph will be very good if all dataframe
 # were be ordered by chromossomes
-clustermap(df_chromossomes.groupby('chromossome').count(), annot=True)
+# clustermap(df_chromossomes.groupby('chromossome').count(), annot=True)
 
 #######################
 # 04 - Regression plots
@@ -358,20 +360,20 @@ df10.describe()
 #########################
 # 01 - Distribution plots
 #########################
-distplot(df7, column='variants')
-distplot(df8, column='variants')
-distplot(df10, column='variants')
+# distplot(df7, column='variants')
+# distplot(df8, column='variants')
+# distplot(df10, column='variants')
 
-kdeplot(df7, column='variants')
-kdeplot(df8, column='variants')
-kdeplot(df10, column='variants')
+# kdeplot(df7, column='variants')
+# kdeplot(df8, column='variants')
+# kdeplot(df10, column='variants')
 
 ########################
 # 02 - Categorical plots
 ########################
-boxplot(df7)
-boxplot(df8)
-boxplot(df10)
+# boxplot(df7)
+# boxplot(df8)
+# boxplot(df10)
 
 ##########################
 # Data Anaylis
@@ -380,3 +382,104 @@ boxplot(df10)
 # Get genes informations about populations
 ##########################
 
+#######
+# Some more data analysis
+# Status: DOING
+#######
+
+n_variants_total = len(df6.groupby('Variant ID').count().reset_index()['Variant ID'].unique())
+
+n_genes_with_variants = len(df6['gene'].unique())
+
+print(df6['Variant ID'].value_counts())
+
+print(f"There is a total of {n_variants_total} unique variants in all {n_genes_with_variants} genes with variants")
+
+df_nGenes_x_variant = df6.groupby('Variant ID').count().reset_index().sort_values(by='gene', ascending=False)
+
+variant_most_frequency_in_genes = df_nGenes_x_variant.iloc[0, 0]
+
+genes_from_most_frequent_variant = df6[df6['Variant ID'] == variant_most_frequency_in_genes]['gene'].unique()
+
+print("Analysing the genes from the most frequent variant")
+
+print(pd.DataFrame(genes_from_most_frequent_variant).describe())
+
+print(f"{variant_most_frequency_in_genes} is the variant most frequency in genes")
+
+print(f"{len(genes_from_most_frequent_variant)} is/are the number of genes from the most frequent variant")
+
+print(f"{genes_from_most_frequent_variant} is/are the genes from the most frequent variant")
+
+print("Analysing the df_nGenes_x_variant")
+
+print(df_nGenes_x_variant.describe())
+
+# distplot(df_nGenes_x_variant, column='gene', bins=10)
+
+# barplot(df_nGenes_x_variant, 'Variant ID', 'gene')
+
+
+############
+# Question 04
+# What is the chromossome of the most frequent variant?
+############
+
+gene_from_most_frequent_variant = df5[df5['Variant ID'] == variant_most_frequency_in_genes]['gene'].iloc[0]
+
+chromossome_from_most_frequent_variant = df2[df2['gene'] == gene_from_most_frequent_variant].iloc[0, 1]
+
+print(f"Chromossome {chromossome_from_most_frequent_variant} contains the gene {gene_from_most_frequent_variant} wich contains the most frequent variant {variant_most_frequency_in_genes}")
+
+###########
+# Question 05
+# What are the chromossomes wich contains the most 25 % frequent variants of the genes?
+###########
+
+percent_25 = int(len(df_nGenes_x_variant) / 4)
+
+df_nGenes_x_variant.iloc[0:percent_25]
+
+top_variants = (np.array(df_nGenes_x_variant.iloc[0:percent_25]['Variant ID'].unique()))
+
+df_gen_var_nVar = pd.merge(left=df6[['gene', 'Variant ID']], right=df_nGenes_x_variant.iloc[0:percent_25], how='inner', on='Variant ID')
+
+df_gen_var_nVar.columns = ['gene', 'Variant ID', 'n_var_in_genes']
+
+df_gen_var_nVar.describe()
+
+df_final_01 = pd.merge(left=df2, right=df_gen_var_nVar, how='inner', on='gene').sort_values(by='n_var_in_genes', ascending=False)
+
+del df_final_01['n_var_in_genes']
+
+# df_final_01.drop_duplicates()
+# df_final_01.drop_duplicates(subset=['gene'])
+# df_final_01.drop_duplicates(subset=['gene']) # Top variants per gene
+
+#############
+# Data Analysis
+# Analyse df_final_01
+# Status: DOING
+#############
+
+# df_chr_variant = chromossome_dataframe_order_with_all_columns(df_final_01, x=True)
+
+n_variants_in_general = df_final_01.drop_duplicates(subset=['Variant ID']).shape[0]
+
+dff2 = df_final_01.drop_duplicates(subset=['Variant ID'])[['chromossome', 'gene', 'Variant ID']]
+
+dff2.columns = ['chromossome', 'gene', 'variant']
+
+print(f"There is {n_variants_in_general} variants in whole chromossomes and genes")
+
+countplot(dff2, x='chromossome')
+
+li = [str(i) for i in range(1, 23)]
+
+li.append('X')
+
+dff3 = pd.DataFrame()
+
+for chrm in li:
+	bol_temp = dff2['chromossome'] == chrm
+	dff3 = pd.concat([dff3, dff2[bol_temp]])
