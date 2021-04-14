@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from plots import *
 from chromossome import chromossome_sequence_to_dataframe
 from chromossome import chromossome_dataframe_order
+from styles import plt_figure_size
 
 
 ##############
@@ -549,11 +550,89 @@ barplot(dff6, x='chromossome', y='variant')
 ################
 # Data Visualization
 # Chromossome x number of genes
+# Status: DONE
 ################
 
 dff7 = dff3.drop_duplicates(subset=['gene'])[['chromossome']]
 
 countplot(df=dff7, x='chromossome')
+
+################
+# Data Analysis
+# Alele informations
+# Status: DONE
+################
+
+print("Alele informations")
+
+df5[['Alleles']].describe()
+
+dff8 = df5[['gene', 'Variant ID', 'Alleles']].drop_duplicates()
+
+dff8.describe()
+
+n_alleles = dff8['Alleles'].unique().shape[0]
+
+print(f"There is a total of {n_alleles}")
+
+distplot(dff8[['Alleles']], column='Alleles')
+
+dff9 = df5[['Location', 'gene', 'Variant ID', 'Alleles']].drop_duplicates()
+
+dff9.describe()
+
+dff10 = df5[df5['meta_lr_class'] == 'damaging']
+
+print('Damaging Variants')
+
+dff10[['Variant ID']]
+
+dff11 = dff10[['Location', 'gene', 'Variant ID', 'Alleles', 'Clin. Sig.', 'MetaLR']]
+
+li = [x for x in range(1, 23)]
+
+li.append('X')
+
+dff12 = pd.DataFrame()
+
+for chrm in li:
+	b = dff11['Location'].apply(lambda x: str(chrm) == x.split(':')[0])
+	list_dataframe = [dff12, dff11[b]]
+	dff12 = pd.concat(list_dataframe, axis=0)
+
+dff12[['Location']] = pd.DataFrame(dff12['Location'].apply(lambda x: x.split(':')[0]))
+
+dff12[['MetaLR']] = pd.DataFrame(dff12['MetaLR'].apply(lambda x: float(x)))
+
+dff12.describe()
+
+countplot(dff12, x='Alleles')
+
+countplot(dff12, x='Location')
+
+plt_figure_size(20, 8)
+
+boxplot(dff12, x='Alleles', y='MetaLR')
+
+plt_figure_size(20, 8)
+
+boxplot(dff12, x='Location', y='MetaLR')
+
+plt_figure_size(20, 8)
+
+barplot(dff12, x='Alleles', y='MetaLR')
+
+plt_figure_size(20, 8)
+
+barplot(dff12, x='Location', y='MetaLR')
+
+dff13 = pd.pivot_table(dff12, values='MetaLR', index=['Location'], columns=['Alleles'])
+
+plt_figure_size(20, 8)
+
+heatmap(dff13)
+
+clustermap(dff13)
 
 ##########################
 # Data Anaylis
