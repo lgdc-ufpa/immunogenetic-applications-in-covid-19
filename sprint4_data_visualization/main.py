@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 from plots import *
 from chromossome import chromossome_sequence_to_dataframe
 from chromossome import chromossome_dataframe_order
-from chromossome import chromossome_dataframe_order_with_all_columns
 
 
 ##############
@@ -375,13 +374,6 @@ df10.describe()
 # boxplot(df8)
 # boxplot(df10)
 
-##########################
-# Data Anaylis
-# Status: DOING
-
-# Get genes informations about populations
-##########################
-
 #######
 # Some more data analysis
 # Status: DOING
@@ -472,7 +464,7 @@ dff2.columns = ['chromossome', 'gene', 'variant']
 
 print(f"There is {n_variants_in_general} variants in whole chromossomes and genes")
 
-countplot(dff2, x='chromossome')
+# countplot(dff2, x='chromossome')
 
 li = [str(i) for i in range(1, 23)]
 
@@ -483,3 +475,89 @@ dff3 = pd.DataFrame()
 for chrm in li:
 	bol_temp = dff2['chromossome'] == chrm
 	dff3 = pd.concat([dff3, dff2[bol_temp]])
+
+# dff3.describe()
+
+chrm_unique, chrm_top, chrm_freq = dff3.describe()['chromossome'].iloc[1:]
+gene_unique, gene_top, gene_freq = dff3.describe()['gene'].iloc[1:]
+vari_unique, vari_top, vari_freq = dff3.describe()['variant'].iloc[1:]
+
+print(">>Chromossome")
+print(f"There is/are {chrm_unique} unique chromossomes")
+print(f"The most frequent chromossome {chrm_top} appears {chrm_freq} times")
+
+print(">>Gene")
+print(f"There is/are {gene_unique} unique genes")
+print(f"The most frequent gene {gene_top} appears {gene_freq} times")
+
+print(">>Variant")
+print(f"There is/are {vari_unique} unique variants")
+print(f"The most frequent variant {vari_top} appears {vari_freq} times")
+
+# countplot(dff3, x='chromossome')
+#################
+# Question 06
+# Which are the patogenic variants?
+# Status: DONE
+#################
+
+clinic_signal_uniqued = df5['Clin. Sig.'].unique()
+
+print(clinic_signal_uniqued)
+
+df5[df5['Clin. Sig.'] == 'pathogenic']['Variant ID']
+
+dff4 = df5[df5['Clin. Sig.'] == 'pathogenic'].drop_duplicates(subset=['Variant ID'])
+
+print('\n>>>Pathogenic Variants')
+print(dff4[['Variant ID']])
+
+# countplot(dff3, x='chromossome')
+
+###############
+# Question 07
+# What are the genes that the pathogenic variants are present
+# Status: DONE
+###############
+
+c = list(dff4.columns)
+
+c[0] = 'variant'
+
+dff4.columns = c
+
+dff5 = pd.merge(left=dff3, right=dff4, how='inner', on='variant').iloc[:, :3]
+
+pathogenic_genes = dff4[['gene']].drop_duplicates()
+
+n_pathogenic_genes = pathogenic_genes.shape[0]
+
+print(f"There are a total of {n_pathogenic_genes} genes with pathogenic variants")
+
+# countplot(dff3, x='chromossome')
+
+############
+# Data Visualization
+# Chromossome x number of variants
+# Status: DONE
+############
+
+dff6 = dff3.groupby(by='chromossome').count()[['variant']].reset_index().sort_values(by='variant', ascending=False)
+dff6.columns = ['chromossome', 'n_variants']
+barplot(dff6, x='chromossome', y='variant')
+
+################
+# Data Visualization
+# Chromossome x number of genes
+################
+
+dff7 = dff3.drop_duplicates(subset=['gene'])[['chromossome']]
+
+countplot(df=dff7, x='chromossome')
+
+##########################
+# Data Anaylis
+# Status: TODO
+
+# Get genes informations about populations
+##########################

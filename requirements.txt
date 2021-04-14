@@ -11,6 +11,7 @@ scipy==1.6.0
 matplotlib==3.3.3
 seaborn==0.11.1
 jupyter==1.0.0
+jupyter-qtconsole-colorschemes==0.8.1
 plotly==4.14.3
 jupyterthemes==0.20.0
 pyQt5==5.15.4
