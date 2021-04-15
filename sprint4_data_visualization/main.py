@@ -7,6 +7,8 @@ from plots import *
 from chromossome import chromossome_sequence_to_dataframe
 from chromossome import chromossome_dataframe_order
 from styles import plt_figure_size
+from tqdm import tqdm
+from alleles import *
 
 
 ##############
@@ -545,7 +547,7 @@ print(f"There are a total of {n_pathogenic_genes} genes with pathogenic variants
 
 dff6 = dff3.groupby(by='chromossome').count()[['variant']].reset_index().sort_values(by='variant', ascending=False)
 dff6.columns = ['chromossome', 'n_variants']
-barplot(dff6, x='chromossome', y='variant')
+# barplot(dff6, x='chromossome', y='variant')
 
 ################
 # Data Visualization
@@ -555,7 +557,7 @@ barplot(dff6, x='chromossome', y='variant')
 
 dff7 = dff3.drop_duplicates(subset=['gene'])[['chromossome']]
 
-countplot(df=dff7, x='chromossome')
+# countplot(df=dff7, x='chromossome')
 
 ################
 # Data Analysis
@@ -575,7 +577,7 @@ n_alleles = dff8['Alleles'].unique().shape[0]
 
 print(f"There is a total of {n_alleles}")
 
-distplot(dff8[['Alleles']], column='Alleles')
+# distplot(dff8[['Alleles']], column='Alleles')
 
 dff9 = df5[['Location', 'gene', 'Variant ID', 'Alleles']].drop_duplicates()
 
@@ -588,6 +590,7 @@ print('Damaging Variants')
 dff10[['Variant ID']]
 
 dff11 = dff10[['Location', 'gene', 'Variant ID', 'Alleles', 'Clin. Sig.', 'MetaLR']]
+# dff11 = df5[['Location', 'gene', 'Variant ID', 'Alleles', 'Clin. Sig.', 'MetaLR']]
 
 li = [x for x in range(1, 23)]
 
@@ -603,28 +606,30 @@ for chrm in li:
 dff12[['Location']] = pd.DataFrame(dff12['Location'].apply(lambda x: x.split(':')[0]))
 
 dff12[['MetaLR']] = pd.DataFrame(dff12['MetaLR'].apply(lambda x: float(x)))
+# dff12[['MetaLR']] = dff12[['MetaLR']].apply(lambda x: pd.to_numeric(x, errors='coerce'))
+
 
 dff12.describe()
 
-countplot(dff12, x='Alleles')
+# countplot(dff12, x='Alleles')
 
-countplot(dff12, x='Location')
+# countplot(dff12, x='Location')
 
 plt_figure_size(20, 8)
 
 boxplot(dff12, x='Alleles', y='MetaLR')
 
-plt_figure_size(20, 8)
+# plt_figure_size(20, 8)
 
-boxplot(dff12, x='Location', y='MetaLR')
+# boxplot(dff12, x='Location', y='MetaLR')
 
-plt_figure_size(20, 8)
+# plt_figure_size(20, 8)
 
-barplot(dff12, x='Alleles', y='MetaLR')
+# barplot(dff12, x='Alleles', y='MetaLR')
 
-plt_figure_size(20, 8)
+# plt_figure_size(20, 8)
 
-barplot(dff12, x='Location', y='MetaLR')
+# barplot(dff12, x='Location', y='MetaLR')
 
 dff13 = pd.pivot_table(dff12, values='MetaLR', index=['Location'], columns=['Alleles'])
 
@@ -632,7 +637,7 @@ plt_figure_size(20, 8)
 
 heatmap(dff13)
 
-clustermap(dff13)
+# plt_figure_size(20, 8)
 
 ##########################
 # Data Anaylis
@@ -640,3 +645,68 @@ clustermap(dff13)
 
 # Get genes informations about populations
 ##########################
+
+relative_path_populations = os.path.join("input", "table_with_frequency_of_patogenic_variants_in_populations")
+
+path_genes_with_populations = os.path.join(os.getcwd(), relative_path_populations)
+
+dfpop = pd.DataFrame()
+
+for pop in tqdm(os.listdir(path_genes_with_populations)):
+	path_pop = os.path.join(relative_path_populations, pop)
+	dftemp = pd.read_csv(path_pop)
+	gene = pop.split('_')[1]
+	variant = pop.split('_')[-1].split('.')[0]
+	dftemp['gene'] = gene
+	dftemp['variant'] = variant
+	del dftemp['Unnamed: 1']
+	dfpop = pd.concat([dfpop, dftemp])
+
+
+###########
+# Data Analysis
+# Split alleles frequency and count
+# Status: DONE
+###########
+# https://stackoverflow.com/questions/8569201/get-the-string-within-brackets-in-python
+
+# TODO IN FUTURE
+col_allele = 'Allele: frequency (count)'
+alleles_colection = dfpop[col_allele].apply(alleles_split)
+df_alleles_colection = pd.DataFrame(alleles_colection)
+
+for alleles in alleles_colection:
+	print(alleles)
+	for allele in alleles:
+		print(allele)
+		a, freq, count = allele
+		print(a, freq, count)
+	# print(list(map(lambda x: len(x) == 1, alleles)))
+	break
+
+for line in dfpop.itertuples(index=False):
+	print(line.Population)	
+	break
+
+dfpop3 = pd.read_csv(os.path.join('input', 'output_3.csv'), '>')
+dfpopdata = pd.read_csv(os.path.join('input', 'data.csv'))
+
+
+##############
+# Data Visualization including populations
+# What is the frequency of the variants in the populations
+# Status: DOING
+##############
+
+dfpopdataexome = dfpopdata[dfpopdata['source'] == 'gnomAD exomes']
+dfpopdataexomeall = dfpopdataexome[dfpopdataexome['population'] == 'all']
+dfpopdataexomenotall = dfpopdataexome[dfpopdataexome['population'] != 'all']
+dfpopdataexomenotallpathogenic = dfpopdataexomenotall['variant']
+
+dfpopdatagenome = dfpopdata[dfpopdata['source'] == 'gnomAD genomes r3.0']
+
+dfpopdata3 = pd.pivot_table(data=dfpopdata, values='frequency', index='variant', columns='population')
+dfpopdata4 = pd.pivot_table(data=dfpopdata, values='frequency', index=['source', 'gene', 'variant', 'allele'], columns=['population'])
+
+distplot(dfpopdata, column='frequency')
+distplot(dfpopdataexome, column='count')
